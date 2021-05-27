@@ -1,13 +1,15 @@
 import './Trending.css';
 
-import React, { useEffect, useState } from 'react'
+import {History, useHistory} from "react-router-dom";
+import React, { useEffect, useState } from 'react';
 
 import Custompagination from '../Pagination/Custompagination';
+import MainCarousel from '../Carousel/Carousel';
 import SingleContent from '../SingleContent/Singlecontent';
 import axios from 'axios';
 
-const Trending = () => {
-
+const Trending = ({id,media_type}) => {
+    const history= useHistory();
     const [page, setPage] = useState(1);
     const [Content, setContent] = useState();
 
@@ -23,13 +25,22 @@ const Trending = () => {
         fetchTrending();
     }, [page])
 
+    if(!localStorage.getItem('token')){
+        history.push("/login");
+    }
 
     return (
         <div>
-        <span className="pageTitle">Trending Today</span>
+         
+        <span className="pageTitle">TRENDING TODAY</span>
+       
+        <div><MainCarousel  >Main <h1>Helloollllllllllllllllll</h1></MainCarousel></div>
+        
         <div className="trending">
             {
+                
                 Content && Content.map((c)=>
+                
                 <SingleContent
                 key={c.id}
                 id={c.id}

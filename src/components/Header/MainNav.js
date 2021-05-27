@@ -5,6 +5,7 @@ import TvIcon from "@material-ui/icons/Tv";
 import MovieIcon from "@material-ui/icons/Movie";
 import SearchIcon from "@material-ui/icons/Search";
 import WhatshotIcon from "@material-ui/icons/Whatshot";
+import LockOpenIcon from '@material-ui/icons/LockOpen';
 import { makeStyles } from "@material-ui/core/styles";
 import { useHistory } from "react-router-dom";
 
@@ -44,6 +45,7 @@ const useStyles = makeStyles({
         showLabels
         className={classes.root}
       >
+         
         <BottomNavigationAction
           style={{ color: "white" }}
           label="Trending"
@@ -66,5 +68,6 @@ const useStyles = makeStyles({
           icon={<SearchIcon />}
         />
       </BottomNavigation>
+      
     );
   }

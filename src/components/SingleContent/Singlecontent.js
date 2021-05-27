@@ -1,10 +1,12 @@
 import './singlecontent.css';
 
 import { img_300, unavailable } from '../SingleContent/config/config';
-
+import {Button} from '@material-ui/core'
 import Badge from '@material-ui/core/Badge';
 import ContentModal from '../Contentmodel/Contentmodel';
-import React from 'react'
+import React from 'react';
+import favorite from '../favorite';
+import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 
 const Singlecontent = ({
     id,
@@ -24,6 +26,7 @@ const Singlecontent = ({
                 {media_type === "tv" ? "TV Series" : "Movie"}
                 <span className="subTitle">{date}</span>
             </span>
+            
             </ContentModal>
     )
 }

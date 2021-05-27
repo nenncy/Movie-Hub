@@ -1,3 +1,4 @@
+import {History, useHistory} from "react-router-dom";
 import { use, useEffect, useState } from "react";
 
 import Custompagination from '../Pagination/Custompagination';
@@ -9,6 +10,7 @@ import useGenre from '../hooks/customgenres';
 
 const Series = () => {
 
+  const history= useHistory();
     const [page, setPage] = useState(1);
     const [content, setContent] = useState([]);
     const [numOfPages, setNumOfPages] = useState();
@@ -31,11 +33,16 @@ const Series = () => {
         // eslint-disable-next-line
       }, [genreforURL, page]);
     
+      
+  if(!localStorage.getItem('token')){
+    history.push("/login");
+}
+   
     
     return (
         <div>
          <div>
-             <span className="pageTitle">Tv Series</span>
+             <span className="pageTitle">TV SERIES</span>
       <Genres
         type="tv"
         selectedGenres={selectedGenres}

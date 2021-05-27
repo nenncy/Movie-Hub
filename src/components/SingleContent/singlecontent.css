@@ -1,23 +1,26 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap");
 .media {
   display: flex;
   flex-direction: column;
-  width: 200px;
-  padding: 5px;
-  margin: 5px 0;
-  background-color: #282c34;
+  width: 220px;
+  padding: 10px;
+  margin: 10px 0;
+  background-color:gainsboro
+   ;
   
   position: relative;
-  font-family: "Montserrat", sans-serif;
+  font-family:  sans-serif;
+  font-weight: 200;
 }
 
 .media:hover {
-  background-color: white;
-  color: black;
+  background-color:#39445a;
+  color: white;
 }
 
 @media (max-width: 550px) {
   .media {
-    width: 46%;
+    width: 49%;
   }
 }
 
@@ -28,14 +31,16 @@
 .title {
   width: 100%;
   text-align: center;
-  font-size: 17px;
-  padding: 8px 0;
+  font-size: 15px;
+  padding: 2px 0;
+  padding-bottom: 1%;
 }
 
 .subTitle {
   display: flex;
   justify-content: space-between;
-  padding-bottom: 3px;
-  padding: 0 2px;
+  padding-bottom: 2px;
+  padding: 0 1px;
+  font-weight: 200;
   padding-bottom: 3px;
 }

@@ -11,7 +11,9 @@ import Backdrop from "@material-ui/core/Backdrop";
 import { Button } from "@material-ui/core";
 import Carousel from "../Carousel/Carousel";
 import Fade from "@material-ui/core/Fade";
+import Favorite from '../favorite';
 import Modal from "@material-ui/core/Modal";
+import { Movie } from "@material-ui/icons";
 import YouTubeIcon from "@material-ui/icons/YouTube";
 import axios from "axios";
 import { makeStyles } from "@material-ui/core/styles";
@@ -131,7 +133,7 @@ export default function TransitionsModal({ children, media_type, id }) {
                   <div>
                     <Carousel id={id} media_type={media_type} />
                   </div>
-
+                  <Favorite userFrom={localStorage.getItem('_id')} movieId={id}  movieInfo={Movie}/>
                   <Button
                     variant="contained"
                     startIcon={<YouTubeIcon />}

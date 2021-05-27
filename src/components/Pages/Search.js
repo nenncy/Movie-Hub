@@ -8,6 +8,7 @@ import {
     ThemeProvider,
     createMuiTheme,
 } from "@material-ui/core";
+import {History, useHistory} from "react-router-dom";
 import { useEffect, useState } from "react";
 
 import Custompagination from '../Pagination/Custompagination';
@@ -17,11 +18,21 @@ import axios from "axios";
 
 const Search = () => {
 
+  const history= useHistory();
     const [type, setType] = useState(0);
     const [searchText, setSearchText] = useState("");
     const [page, setPage] = useState(1);
     const [content, setContent] = useState([]);
     const [numOfPages, setNumOfPages] = useState();
+    const darkTheme = createMuiTheme({
+      palette: {
+        type: "dark",
+        primary: {
+          main: "#fff",
+        },
+      },
+    });
+  
 
     const fetchSearch = async () => {
     try {
@@ -42,10 +53,13 @@ const Search = () => {
     // eslint-disable-next-line
   }, [type, page]);
 
+  if(!localStorage.getItem('token')){
+    history.push("/login");
+}
     
     return (
         <>
-            <div className="search">
+          <div className="search">
           <TextField
             style={{ flex: 1 }}
             className="searchBox"
@@ -88,7 +102,7 @@ const Search = () => {
               vote_average={c.vote_average}
             />
           ))}
-        {searchText && !content &&(type ?  <h3 style={{color:"white"}}>No Series Found</h3> : <h3>No Movies Found</h3>)}
+        {searchText && !content &&(type ? <h3>No Series Found</h3> : <h3>No Movies Found</h3>)}
       </div>
       {numOfPages > 1 && (
         <Custompagination setPage={setPage} numOfPages={numOfPages} />
